@@ -34,7 +34,7 @@
                 <x-icons.cog wire:loading class="h-9 w-9 animate-spin text-gray-400" />
 
                 @if($this->activeFilters)
-                <button wire:click="clearAllFilters" class="flex items-center space-x-2 px-3 border border-red-400 rounded-md bg-white text-red-500 text-xs leading-4 font-medium uppercase tracking-wider hover:bg-red-200 focus:outline-none"><span>{{ __('Reset') }}</span>
+                <button wire:click="clearAllFilters" class="flex items-center space-x-2 px-3 border border-red-400 rounded-md bg-white text-red-500 text-xs leading-4 font-medium uppercase tracking-wider hover:bg-red-200 focus:outline-none"><span>{{ __('إعادة تعيين') }}</span>
                     <x-icons.x-circle class="m-2" />
                 </button>
                 @endif
@@ -143,7 +143,7 @@
                                 @elseif($column['type'] === 'label')
                                     @include('datatables::label')
                                 @else
-                                    <div class="table-cell px-6 py-2 whitespace-no-wrap @if($column['align'] === 'right') text-right @elseif($column['align'] === 'center') text-center @else @endif {{ $this->cellClasses($row, $column) }}">
+                                    <div class="table-cell text-right px-6 py-2 whitespace-no-wrap @if($column['align'] === 'right') text-right @elseif($column['align'] === 'center') text-center @else @endif {{ $this->cellClasses($row, $column) }}">
                                         {!! $row->{$column['name']} !!}
                                     </div>
                                 @endif
@@ -151,7 +151,7 @@
                         </div>
                     @empty
                         <p class="p-3 text-lg text-teal-600">
-                            {{ __("There's Nothing to show at the moment") }}
+                            {{ __("لا توجد نتائج") }}
                         </p>
                     @endforelse
                 </div>
@@ -168,7 +168,7 @@
                                 @foreach(config('livewire-datatables.per_page_options', [ 10, 25, 50, 100 ]) as $per_page_option)
                                     <option value="{{ $per_page_option }}">{{ $per_page_option }}</option>
                                 @endforeach
-                                <option value="99999999">{{__('All')}}</option>
+                                <option value="99999999">{{__('الكل')}}</option>
                             </select>
                         </div>
 
