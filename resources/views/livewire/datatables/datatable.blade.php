@@ -43,7 +43,7 @@
                 <div x-data="{ init() {
                     window.livewire.on('startDownload', link => window.open(link, '_blank'))
                 } }" x-init="init">
-                    <button wire:click="export" class="flex items-center space-x-2 py-2 px-3 border border-green-400 rounded-md bg-white text-green-500 text-xs leading-4 font-medium uppercase tracking-wider hover:bg-green-200 focus:outline-none"><span>{{ __('Export') }}</span>
+                    <button wire:click="export" class="flex items-center space-x-2 py-2 px-3 border border-green-400 rounded-md bg-white text-green-500 text-xs leading-4 font-medium uppercase tracking-wider hover:bg-green-200 focus:outline-none"><span>{{ __('تصدير') }}</span>
                         <x-icons.excel class="m-2" /></button>
                 </div>
                 @endif
@@ -183,7 +183,7 @@
                         </div>
 
                         <div class="flex justify-end text-gray-600">
-                            {{__('Results')}} {{ $this->results->firstItem() }} - {{ $this->results->lastItem() }} {{__('of')}}
+                            {{__('نتائج')}} {{ $this->results->firstItem() }} - {{ $this->results->lastItem() }} {{__('من')}}
                             {{ $this->results->total() }}
                         </div>
                     @endif
