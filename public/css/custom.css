@@ -1,0 +1,21 @@
+.navbar-collapse {
+    flex-grow: initial;
+}
+
+@media (min-width: 576px) {
+    .navbar-expand-sm {
+        justify-content: space-between; 
+    }
+}
+
+.table thead th{
+    border-bottom: none;
+}
+
+.rounded-xl{
+    border-radius: 0.9rem !important;
+}
+
+.w-130{
+    width: 130px;
+}
