@@ -1,7 +1,7 @@
 <div>
     @section('title', 'Scout Profile')
     @section('css')
-        <link href="{{ asset('css/sidebarStyle.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/sidebarStyle.min.css') }}" rel="stylesheet">
         <script src="{{ asset('js/sidebarScript.js') }}"></script>
     @stop
     @include('layouts.navbar')

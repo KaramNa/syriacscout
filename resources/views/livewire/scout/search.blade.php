@@ -1,7 +1,7 @@
 <div>
     @section('title', __('navbar.search'))
     @section("css")
-    <link href="{{ asset('css/datatables.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/datatables.min.css') }}" rel="stylesheet">
      @stop
     @include('layouts.navbar')
 

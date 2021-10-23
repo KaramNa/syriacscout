@@ -23,16 +23,16 @@ class DatabaseSeeder extends Seeder
 
     public function run()
     {
-        User::create([
-            "user_name" => "elie",
-            "password" => bcrypt("123123Elie"),
-            "user_type" => "superUser",
-        ]);
+        // User::create([
+        //     "user_name" => "elie",
+        //     "password" => bcrypt("123123Elie"),
+        //     "user_type" => "superUser",
+        // ]);
         // PersonalInfo::factory(200)->create();
         // Language::factory(200)->create();
         // Skill::factory(200)->create();
         // Course::factory(100)->create();
-        // CurrentWork::factory(120)->create();
+        CurrentWork::factory(120)->create();
         // Experience::factory(90)->create();
         // Education::factory(50)->create();
     }

@@ -34,7 +34,7 @@
                 <x-icons.cog wire:loading class="h-9 w-9 animate-spin text-gray-400" />
 
                 @if($this->activeFilters)
-                <button wire:click="clearAllFilters" class="flex items-center space-x-2 px-3 border border-red-400 rounded-md bg-white text-red-500 text-xs leading-4 font-medium uppercase tracking-wider hover:bg-red-200 focus:outline-none"><span>{{ __('إعادة تعيين') }}</span>
+                <button wire:click="clearAllFilters" class="flex items-center space-x-2 py-2 px-3 border border-red-400 rounded-md bg-white text-red-500 text-xs leading-4 font-medium uppercase tracking-wider hover:bg-red-200 focus:outline-none"><span>{{ __('إعادة تعيين') }}</span>
                     <x-icons.x-circle class="m-2" />
                 </button>
                 @endif
