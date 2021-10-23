@@ -59,9 +59,9 @@ class Search extends LivewireDatatable
             // NumberColumn::raw('FLOOR(DATEDIFF(NOW(), (STR_TO_DATE(scout_birthdate, "%d/%m/%Y")))/365) AS العمر')
             //     ->filterable(),
 
-            NumberColumn::raw('FLOOR(DATEDIFF(year,NOW(), (TO_DATE(scout_birthdate, "YYYYMMDD")))) AS العمر')
+            NumberColumn::raw('AGE(timestamp TO_DATE(scout_birthdate, "YYYYMMDD"))) AS العمر')
                 ->filterable(),
-
+ 
             // Column::name('languages.scout_lang')
             //     ->label("اللغات")
             //     ->defaultSort('asc')
