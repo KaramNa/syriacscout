@@ -56,41 +56,38 @@ class Search extends LivewireDatatable
                 ->label("الفوج")
                 ->filterable($this->Regiment),
 
-            // NumberColumn::raw('FLOOR(DATEDIFF(NOW(), (STR_TO_DATE(scout_birthdate, "%d/%m/%Y")))/365) AS العمر')
-            //     ->filterable(),
-
-            NumberColumn::raw('AGE(timestamp TO_DATE(scout_birthdate, "YYYYMMDD"))) AS العمر')
+            NumberColumn::raw('FLOOR(DATEDIFF(NOW(), (STR_TO_DATE(scout_birthdate, "%d/%m/%Y")))/365) AS العمر')
                 ->filterable(),
- 
-            // Column::name('languages.scout_lang')
-            //     ->label("اللغات")
-            //     ->defaultSort('asc')
-            //     ->filterable($this->Languages),
 
-            // Column::name('skills.scout_skill_name')
-            //     ->label("المهارات")
-            //     ->defaultSort('asc')
-            //     ->filterable($this->Skill),
+            Column::name('languages.scout_lang')
+                ->label("اللغات")
+                ->defaultSort('asc')
+                ->filterable($this->Languages),
 
-            // Column::name('courses.scout_course')
-            //     ->label("الدورات")
-            //     ->defaultSort('asc')
-            //     ->filterable($this->Course),
+            Column::name('skills.scout_skill_name')
+                ->label("المهارات")
+                ->defaultSort('asc')
+                ->filterable($this->Skill),
+
+            Column::name('courses.scout_course')
+                ->label("الدورات")
+                ->defaultSort('asc')
+                ->filterable($this->Course),
                 
-            // Column::name('education.scout_education_name')
-            //     ->label("التحصيل العلمي")
-            //     ->defaultSort('asc')
-            //     ->filterable($this->Education),
+            Column::name('education.scout_education_name')
+                ->label("التحصيل العلمي")
+                ->defaultSort('asc')
+                ->filterable($this->Education),
                 
-            // Column::name('currentWork.scout_current_work')
-            //     ->label("العمل الحالي")
-            //     ->defaultSort('asc')
-            //     ->filterable($this->CurrentWork),
+            Column::name('currentWork.scout_current_work')
+                ->label("العمل الحالي")
+                ->defaultSort('asc')
+                ->filterable($this->CurrentWork),
                 
-            // Column::name('experiences.scout_experience')
-            //     ->label("الخبرة")
-            //     ->defaultSort('asc')
-            //     ->filterable($this->Experience),
+            Column::name('experiences.scout_experience')
+                ->label("الخبرة")
+                ->defaultSort('asc')
+                ->filterable($this->Experience),
         ];
     }
 
