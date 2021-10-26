@@ -51,8 +51,8 @@
                                 <option value="" selected>{{ __('common.choose user type') }}</option>
                                 <option value="superUser">Super User</option>
                                 <option value="admin">Admin</option>
-                                <option value="viewer">Viewer
-                                </option>
+                                <option value="viewer">Viewer</option>
+                                <option value="content_manager">Content Manager</option>
                             </select>
                             <div class="text-danger ">
                                 @error('user_type')
