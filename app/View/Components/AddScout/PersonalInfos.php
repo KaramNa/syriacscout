@@ -14,7 +14,7 @@ class PersonalInfos extends Component
      *
      * @return void
      */
-    public function __construct($scoutProfilePicture, $regiments, $fileName,)
+    public function __construct($scoutProfilePicture, $regiments, $fileName)
     {
         $this->scoutProfilePicture = $scoutProfilePicture;
         $this->regiments = $regiments;
