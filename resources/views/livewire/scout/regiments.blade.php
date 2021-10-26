@@ -4,9 +4,9 @@
     @include('layouts.navbar')
 
     <div class="pt-5 mx-auto mt-5 col-md-6">
-        @if (session()->has('status'))
-            <div class="text-center alert alert-success alert-dismissible fade show" role="alert">
-                {{ session('status') }}
+        @if (session()->has('status') || session()->has('error'))
+            <div class="text-center alert @if (session()->has('error')) alert-danger @else alert-success @endif alert-dismissible fade show" role="alert">
+                {{ session('status') . session('error')}}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

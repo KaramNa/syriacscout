@@ -10,4 +10,5 @@ return [
     "regiment edited" => "تم تعديل الفوج بنجاح",
     "regiment not found" => "الفوج غير موجود",
     "regiment deleted" => "تم حذف الفوج بنجاح",
+    "regiment delete error" => "لا يمكن حذف هذا الفوج لوجود كشافة منتسبين له"
 ];

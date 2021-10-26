@@ -61,8 +61,14 @@ class Regiments extends Component
 
     public function deleteRegiment()
     {
-        $this->regiment_to_edit->delete();
-        session()->flash("status", __("regiments.regiment deleted"));
-        $this->dispatchBrowserEvent("CloseModal");
+        try {
+            $this->regiment_to_edit->delete();
+            session()->flash("status", __("regiments.regiment deleted"));
+            $this->dispatchBrowserEvent("CloseModal");
+        } catch (\Throwable $th) {
+            $this->dispatchBrowserEvent("CloseModal");
+            session()->flash("error", __("regiments.regiment delete error"));
+        }
+        
     }
 }
