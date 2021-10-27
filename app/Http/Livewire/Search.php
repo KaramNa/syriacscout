@@ -17,7 +17,6 @@ use Mediconesystems\LivewireDatatables\NumberColumn;
 class Search extends LivewireDatatable
 {
     public $exportable = true;
-    public $complex = true;
 
     public function builder()
     {

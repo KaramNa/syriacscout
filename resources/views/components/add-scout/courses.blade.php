@@ -57,7 +57,7 @@
             </div>
         </div>
     </div>
-    <div class="mt-2">
+    <div class="mt-2 d-flex justify-content-end">
         <button name="remove_course" type="button" class="btn btn-danger" wire:click.prevent="removeCourse({{$key}})"><i class="fas fa-times"></i></button>
     </div>
 @endforeach

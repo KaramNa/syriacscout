@@ -159,9 +159,11 @@
                                 <div></div>
                             @endif
 
-                            @if ($currentStep >= 2 && $currentStep <= 7) <button
-                                    class="text-white btn btn-primary" type="button"
+                            @if ($currentStep >= 2 && $currentStep <= 7) 
+                            <button class="text-white btn btn-primary" type="button"
                                     wire:click="decreaseStep">السابق</button>
+                            <button class="text-white btn btn-danger" type="button"
+                                    onclick='window.location.reload();'>إلغاء</button>
                             @endif
 
                             @if ($currentStep == 7)
