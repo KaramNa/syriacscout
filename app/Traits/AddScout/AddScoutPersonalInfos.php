@@ -17,6 +17,7 @@ trait AddScoutPersonalInfos
         $scout_home_phone, $scout_name_en, $scout_gender,
         $scout_marital_status, $scout_no_of_children, $scout_address,
         $scout_regiment, $scout_government, $scout_city;
+    public $suspension_date;
 
     public $fileName = "avatar.jpg", $scoutProfilePicture;
 

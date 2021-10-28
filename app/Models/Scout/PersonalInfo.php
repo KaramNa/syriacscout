@@ -39,6 +39,7 @@ class PersonalInfo extends Model
       'regiment_id',
       'scout_profile_picture',
       'scout_city',
+      'suspension_date',
    ];
 
    public function education()
@@ -69,5 +70,13 @@ class PersonalInfo extends Model
    public function regiment()
    {
       return $this->belongsTo(Regiment::class);
+   }
+
+   public function scopeIsActive($query, $value)
+   {
+      if ($value === "نشط")
+         $query->where('suspension_date', Null);
+      else
+         $query->where('suspension_date', "!=", Null);
    }
 }

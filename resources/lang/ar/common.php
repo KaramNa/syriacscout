@@ -8,5 +8,8 @@ return [
     "edit" => "تعديل",
     "delete" => "حذف",
     "choose the regiment" => "اختر الفوج",
+    "status" => "الحالة",
+    "active" => "نشط",
+    "not active" => "غير نشط",
 
 ];

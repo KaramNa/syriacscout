@@ -103,4 +103,23 @@ class ManagePersonalInfo extends Component
         $this->dispatchBrowserEvent("CloseModal");
         return redirect(request()->header("Referer"));
     }
+
+    public function suspend_scout()
+    {
+        $this->validate([
+            "suspension_date" => "required|date_format:d/m/Y"
+        ]);
+
+        $updated = $this->scout->update([
+            "suspension_date" => $this->suspension_date
+        ]);
+
+        if ($updated) {
+            session()->flash("update_succeed", "تم إيقاف نشاط الكشاف بنجاح");
+        } else {
+            session()->flash("update_failed", "حدث خطأ ما, الرجاء المحاولة مجدداً");
+        }
+        $this->dispatchBrowserEvent("CloseModal");
+        return redirect(request()->header("Referer"));
+    }
 }

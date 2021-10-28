@@ -33,7 +33,7 @@ return [
     'boolean' => 'The :attribute field must be true or false.',
     'confirmed' => 'كلمة المرور والتأكيد غير متطابقين',
     'current_password' => 'The password is incorrect.',
-    'date' => 'يجب ‘إدخال تاريخ صالح',
+    'date' => 'يجب إدخال تاريخ صالح',
     'date_equals' => 'The :attribute must be a date equal to :date.',
     'date_format' => 'يحب ادخال تاريخ صالح',
     'different' => 'The :attribute and :other must be different.',

@@ -14,6 +14,7 @@ class ScoutProfile extends Component
     public $scout_first_name;
     public $scout_last_name;
     public $regiment_name;
+    public $suspension_date;
     public $edit_scout_permission = false;
 
     public function mount($scoutId)
@@ -26,6 +27,7 @@ class ScoutProfile extends Component
         $this->scout_first_name = $this->scout->scout_first_name;
         $this->scout_last_name = $this->scout->scout_last_name;
         $this->regiment_name = $this->scout->regiment->regiment_name;
+        $this->suspension_date = $this->scout->suspension_date;
         if ((auth()->user()->user_type === "admin" && auth()->user()->regiment_id === $this->scout->regiment_id) || auth()->user()->user_type === "superUser") {
             $this->edit_scout_permission = true;
         }

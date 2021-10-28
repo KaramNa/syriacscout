@@ -3,16 +3,18 @@
 namespace App\Http\Livewire;
 
 use App\Models\Regiment;
+use App\Models\Scout\Skill;
 use App\Models\Scout\Course;
-use App\Models\Scout\CurrentWork;
+use App\Models\Scout\Language;
 use App\Models\Scout\Education;
 use App\Models\Scout\Experience;
-use App\Models\Scout\Language;
+use App\Models\Scout\CurrentWork;
 use App\Models\Scout\PersonalInfo;
-use App\Models\Scout\Skill;
+use phpDocumentor\Reflection\Types\Null_;
 use Mediconesystems\LivewireDatatables\Column;
-use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 use Mediconesystems\LivewireDatatables\NumberColumn;
+use Mediconesystems\LivewireDatatables\BooleanColumn;
+use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 
 class Search extends LivewireDatatable
 {
@@ -58,6 +60,15 @@ class Search extends LivewireDatatable
             NumberColumn::raw('FLOOR(DATEDIFF(NOW(), (STR_TO_DATE(scout_birthdate, "%d/%m/%Y")))/365) AS العمر')
                 ->filterable(),
 
+            column::callback('suspension_date', function ($suspension_date) {
+                if ($suspension_date == Null)
+                    return "نشط";
+                else
+                    return "غير نشط";
+            })->label("الحالة")
+                ->filterOn("suspension_date")
+                ->filterable(["نشط", "غير نشط"], "isActive"),
+
             Column::name('languages.scout_lang')
                 ->label("اللغات")
                 ->defaultSort('asc')
@@ -72,17 +83,17 @@ class Search extends LivewireDatatable
                 ->label("الدورات")
                 ->defaultSort('asc')
                 ->filterable($this->Course),
-                
+
             Column::name('education.scout_education_name')
                 ->label("التحصيل العلمي")
                 ->defaultSort('asc')
                 ->filterable($this->Education),
-                
+
             Column::name('currentWork.scout_current_work')
                 ->label("العمل الحالي")
                 ->defaultSort('asc')
                 ->filterable($this->CurrentWork),
-                
+
             Column::name('experiences.scout_experience')
                 ->label("الخبرة")
                 ->defaultSort('asc')
