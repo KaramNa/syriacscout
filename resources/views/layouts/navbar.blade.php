@@ -1,5 +1,5 @@
 <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark" wire:ignore>
-    <a class="navbar-brand">{{ auth()->user()->user_name }}</a>
+    <a href="{{ route('user.change-password', auth()->id() ) }}" class="navbar-brand">{{ auth()->user()->user_name }}</a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
         aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
