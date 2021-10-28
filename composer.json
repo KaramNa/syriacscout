@@ -7,6 +7,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "ext-gd": "*",
+        "anhskohbo/no-captcha": "^3.3",
         "fakerphp/faker": "^1.9.1",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -20,7 +21,6 @@
         "yemenifree/laravel-arabic-numbers-middleware": "^3.0"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.6",
         "facade/ignition": "^2.5",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.2",

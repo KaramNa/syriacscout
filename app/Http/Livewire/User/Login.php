@@ -20,6 +20,7 @@ class Login extends Component
     protected $rules = [
         "userName" => "required",
         "password" => "required",
+        'g-recaptcha-response' => 'required|captcha'
     ];
 
     public function login()
