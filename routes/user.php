@@ -1,13 +1,12 @@
 <?php
 
-use App\Http\Controllers\ChangeUserPassword;
+use App\Http\Controllers\Login;
 use App\Http\Controllers\Logout;
-use App\Http\Livewire\User\Login;
 use App\Http\Livewire\User\Register;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Scout\Regiments;
-use App\Http\Livewire\User\ChangerUserPassword;
 use App\Http\Livewire\User\UserManagement;
+use App\Http\Livewire\User\ChangerUserPassword;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +19,8 @@ use App\Http\Livewire\User\UserManagement;
 |
 */
 
-Route::get("/user/login", Login::class)->name("user.login")->middleware("guest");
+Route::get("/user/login", [Login::class, "index"])->name("user.login")->middleware("guest");
+Route::post("/user/login", [Login::class, "login"])->name("user.login")->middleware("guest");
 
 Route::middleware(['auth'])->group(function () {
     Route::get("/user/register", Register::class)->name("user.register")->middleware("can:superUser");
