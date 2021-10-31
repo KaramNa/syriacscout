@@ -21,7 +21,7 @@ class CurrentWorkFactory extends Factory
      */
     public function definition()
     {
-        static $n = 1;
+        static $n = 2;
         return [
             "scout_current_work" => $this->faker->randomElement($array = ['مبرمج', 'مدرس', 'محاسب'], $count = 1, $allowDuplicates = true),
             'scout_current_work_details' => $this->faker->randomElement($array = ['تفاصيل العمل'], $count = 1, $allowDuplicates = true),

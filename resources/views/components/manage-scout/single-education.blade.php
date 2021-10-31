@@ -1,4 +1,4 @@
-@props(['studyYear', 'finishDate'])
+@props(['studyYear', 'finishDate', 'eduSrch' ,'inputFlag'])
 <div class="row">
     <div class="col-lg-6">
         <div class="form-group">
@@ -23,6 +23,20 @@
             <label class="d-flex justify-content-start">التخصص</label>
             <input type="text" class="form-control @error('scout_education_name') border-danger @enderror"
                 placeholder="أدخل التخصص" wire:model="scout_education_name">
+                @if (count($eduSrch) > 0 && $inputFlag === "scout_education_name")
+                        <div
+                            class="position-absolute z-1000 w-95 search-results d-flex justify-between">
+                            <ul class="list-unstyled mt-2 bg-light p-0 scrollable rounded-lg">
+                                @foreach ($eduSrch as $s)
+                                    <li class="cursor-pointer hover:bg-blue p-2"
+                                        wire:click="chooseValue('{{ $s['scout_education_name'] }}', 'scout_education_name')">
+                                        {{ $s['scout_education_name'] }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                            <span class="cursor-pointer h3 mt-2 bg-light" wire:click="resetFilterResult">&times;</span>
+                        </div>
+                @endif
             @error('scout_education_name')
                 <div class="text-danger">
                     {{ $message }}
@@ -50,7 +64,21 @@
         <div class="form-group">
             <label class="d-flex justify-content-start">المكان</label>
             <input type="text" class="form-control @error('scout_education_place') border-danger @enderror"
-                placeholder="أدخل مكان التعلم" wire:model="scout_education_place" onchange="a()">
+                placeholder="أدخل مكان التعلم" wire:model="scout_education_place">
+                @if (count($eduSrch) > 0 && $inputFlag === "scout_education_place")
+                        <div
+                            class="position-absolute z-1000 w-95 search-results d-flex justify-between">
+                            <ul class="list-unstyled mt-2 bg-light p-0 scrollable rounded-lg">
+                                @foreach ($eduSrch as $s)
+                                    <li class="cursor-pointer hover:bg-blue p-2"
+                                        wire:click="chooseValue('{{ $s['scout_education_place'] }}', 'scout_education_place')">
+                                        {{ $s['scout_education_place'] }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                            <span class="cursor-pointer h3 mt-2 bg-light" wire:click="resetFilterResult">&times;</span>
+                        </div>
+                @endif
             @error('scout_education_place')
                 <div class="text-danger">
                     {{ $message }}

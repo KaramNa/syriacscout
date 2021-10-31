@@ -44,7 +44,7 @@
                                         </div>
                                         <div id="education">
                                             <x-add-scout.education :educationInputs="$educationInputs"
-                                                :finishDate="$finishDate" :studyYear="$studyYear" />
+                                                :finishDate="$finishDate" :studyYear="$studyYear" :eduSrch="$eduSrch" :inputFlag="$inputFlag" />
                                         </div>
                                     </div>
                                 </div>

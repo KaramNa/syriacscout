@@ -36,14 +36,5 @@ class AuthServiceProvider extends ServiceProvider
             return ($user->user_type === "admin" || $user->user_type === "superUser");
         });
 
-        // Gate::define("edit-scout", function ($user) {
-        //     $this->scoutId = (int)Route::current()->parameter("scoutId");
-        //     echo $this->scoutId;
-        //     return true;
-        //     // if (PersonalInfo::find($scoutId))
-        //     //     $scout_regiment = PersonalInfo::find($scoutId)->regiment_id;
-        //     // echo $scout_regiment;
-        //     // return (($user->user_type === "admin" && $user->regiment_id === $scout_regiment) || $user->user_type === "superUser");
-        // });
     }
 }

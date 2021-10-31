@@ -9,16 +9,20 @@ class Education extends Component
     public $educationInputs;
     public $studyYear;
     public $finishDate;
+    public $eduSrch;
+    public $inputFlag;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($educationInputs, $finishDate, $studyYear)
+    public function __construct($educationInputs, $finishDate, $studyYear, $eduSrch, $inputFlag)
     {
         $this->educationInputs = $educationInputs;
         $this->finishDate = $finishDate;
         $this->studyYear = $studyYear;
+        $this->eduSrch = $eduSrch;
+        $this->inputFlag = $inputFlag;
     }
 
 

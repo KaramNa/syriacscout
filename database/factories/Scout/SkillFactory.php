@@ -21,7 +21,7 @@ class SkillFactory extends Factory
      */
     public function definition()
     {
-        static $n = 1;
+        static $n = 2;
         return [
             "scout_skill_name" => $this->faker->randomElement($array = ['المرونة', 'التواصل', 'العمل الجماعي'], $count = 1, $allowDuplicates = true),
             "scout_skill_details" => $this->faker->randomElement($array = ['وصف المهارة'], $count = 1, $allowDuplicates = true),

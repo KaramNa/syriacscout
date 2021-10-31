@@ -88,7 +88,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <x-manage-scout.single-education :finishDate="$finishDate" :studyYear="$studyYear" />
+                        <x-manage-scout.single-education :finishDate="$finishDate" :studyYear="$studyYear" :eduSrch="$eduSrch" :inputFlag="$inputFlag" />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal"><i
@@ -120,7 +120,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <x-manage-scout.single-education :finishDate="$finishDate" :studyYear="$studyYear" />
+                        
+                        <x-manage-scout.single-education :finishDate="$finishDate" :studyYear="$studyYear" :eduSrch="$eduSrch" :inputFlag="$inputFlag" />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal"><i

@@ -28,7 +28,7 @@ class ExperienceFactory extends Factory
         $date = Carbon::create($year, $month, $day);
         $start_date = $date->format("d/m/Y");
         $end_date = $date->addWeeks(rand(1, 52))->format("d/m/Y");
-        static $n = 1;
+        static $n = 2;
         return [
             "scout_experience" => $this->faker->randomElement($array = ['مبرمج', 'مدرس', 'محاسب'], $count = 1, $allowDuplicates = true),
             'scout_experience_details' => $this->faker->randomElement($array = ['تفاصيل الخبرة'], $count = 1, $allowDuplicates = true),

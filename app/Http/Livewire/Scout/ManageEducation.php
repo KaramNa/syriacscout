@@ -23,11 +23,15 @@ class ManageEducation extends Component
         $scout_education_place;
     public $edit_scout_permission;
 
+    public $eduSrch = [];
+    public $inputFlag;
+
 
     public function mount()
     {
         $this->getEducations();
     }
+
     public function render()
     {
         return view('livewire.scout.manage-education');
@@ -54,6 +58,8 @@ class ManageEducation extends Component
         $this->reset("scout_education_end_date");
         $this->reset("scout_education_year");
         $this->reset("scout_education_place");
+        $this->resetFilterResult();
+
     }
 
     public function updatedFinishCheck()
@@ -183,5 +189,40 @@ class ManageEducation extends Component
             session()->flash("failed", "حدث خطأ ما, الرجاء المحاولة مجدداً");
         }
         $this->dispatchBrowserEvent("CloseModal");
+    }
+
+    public function chooseValue($value, $property)
+    {
+        if ($property === "scout_education_place")
+            $this->scout_education_place = $value;
+        elseif ($property === "scout_education_name")
+            $this->scout_education_name = $value;
+        $this->eduSrch = [];
+    }
+
+    public function resetFilterResult()
+    {
+        $this->eduSrch = [];
+    }
+
+    public function updated($property, $text)
+    {
+            if ($property === "scout_education_name") {
+                $this->inputFlag = $property;
+                if (strlen($text) > 0) {
+                    $this->eduSrch = Education::select('scout_education_name')->where('scout_education_name', 'LIKE', '%' . $text . '%')->groupBy('scout_education_name')->get();
+                } else {
+                    $this->resetFilterResult();
+                }
+            }
+
+            if ($property === "scout_education_place") {
+                $this->inputFlag = $property;
+                if (strlen($text) > 0) {
+                    $this->eduSrch = Education::select('scout_education_place')->where('scout_education_place', 'LIKE', '%' . $text . '%')->groupBy('scout_education_place')->get();
+                } else {
+                    $this->resetFilterResult();
+                }
+            }
     }
 }

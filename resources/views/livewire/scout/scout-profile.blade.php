@@ -26,11 +26,13 @@
                         <span class="user-name">{{ $scout_first_name }}
                             <strong>{{ $scout_last_name }}</strong>
                         </span>
-                        <span class="user-regiment mt-1">{{ __('personalInfo.Regiment') }}: {{ $regiment_name }}</span>
+                        <span class="user-regiment mt-1">{{ __('personalInfo.Regiment') }}:
+                            {{ $regiment_name }}</span>
                         @if ($suspension_date === null)
                             <span class="mt-1">{{ __('common.status') }}: {{ __('common.active') }}</span>
                         @else
-                            <span class="mt-1">{{ __('common.status') }}: {{ __('common.not active') }} {{ $suspension_date }}</span>
+                            <span class="mt-1">{{ __('common.status') }}: {{ __('common.not active') }}
+                                {{ $suspension_date }}</span>
                         @endif
                     </div>
                 </div>

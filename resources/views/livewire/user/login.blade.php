@@ -23,11 +23,8 @@
                         <form action="{{ route('user.login') }}" method="POST">
                             @csrf
                             @if (session('faild'))
-                                <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+                                <div class="alert alert-danger alert-dismissible fade show text-center pr-0" role="alert">
                                     {{ session('faild') }}
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                             @endif
                             <div class="form-group">

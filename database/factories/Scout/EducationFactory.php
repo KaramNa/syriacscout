@@ -28,7 +28,7 @@ class EducationFactory extends Factory
         $date = Carbon::create($year, $month, $day);
         $start_date = $date->format("d/m/Y");
         $end_date = $date->addWeeks(rand(1, 52))->format("d/m/Y");
-        static $n = 1;
+        static $n = 2;
         return [
             "scout_education_pace" => $this->faker->randomElement($array = ['دكتوراه', 'ماجستير', 'جامعة', 'معهد'], $count = 1, $allowDuplicates = true),
             'scout_education_name' => $this->faker->randomElement($array = ['مدنية', 'فيزياء', 'كيمياء', 'معلوماتية'], $count = 1, $allowDuplicates = true),

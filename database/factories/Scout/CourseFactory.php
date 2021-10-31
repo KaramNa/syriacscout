@@ -21,7 +21,7 @@ class CourseFactory extends Factory
      */
     public function definition()
     {
-        static $n = 1;
+        static $n = 2;
         return [
             "scout_course" => $this->faker->randomElement($array = ['برمجة', 'انكليزي', 'محاسبة'], $count = 1, $allowDuplicates = true),
             'scout_course_place' => $this->faker->randomElement($array = ['دمشق', 'ادلب', 'الحسكة', 'الرقة', 'ريف دمشق', 'السويداء', 'حلب', 'حمص', 'حماة'], $count = 1, $allowDuplicates = true),

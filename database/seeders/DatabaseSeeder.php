@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
         // Language::factory(200)->create();
         // Skill::factory(200)->create();
         // Course::factory(100)->create();
-        CurrentWork::factory(120)->create();
+        // CurrentWork::factory(120)->create();
         // Experience::factory(90)->create();
         // Education::factory(50)->create();
     }

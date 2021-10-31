@@ -30,8 +30,8 @@
     @yield("content")
     @yield("scripts")
 
-
     @livewireScripts
+    
     <script>
         $(document).on("focusin", ".date",
             function() {

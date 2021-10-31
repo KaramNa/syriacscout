@@ -4,18 +4,39 @@
 
 @media (min-width: 576px) {
     .navbar-expand-sm {
-        justify-content: space-between; 
+        justify-content: space-between;
     }
 }
 
-.table thead th{
+.table thead th {
     border-bottom: none;
 }
 
-.rounded-xl{
+.rounded-xl {
     border-radius: 0.9rem !important;
 }
 
-.w-130{
+.w-130 {
     width: 130px;
+}
+
+.z-1000 {
+    z-index: 1000;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.hover\:bg-blue:hover {
+    background-color: cornflowerblue;
+}
+
+.scrollable {
+    height: 150px;
+    overflow-y: scroll;
+}
+
+.w-95 {
+    width: 95%;
 }
