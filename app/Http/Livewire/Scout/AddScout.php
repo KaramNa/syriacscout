@@ -83,7 +83,7 @@ class AddScout extends Component
 
     public function validateScoutData()
     {
-        if ($this->currentStep == 11) {
+        if ($this->currentStep == 1) {
             $this->validateScoutPersonalEducation();
         }
         if ($this->currentStep == 2) {
