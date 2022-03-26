@@ -34,6 +34,7 @@
 
 .page-wrapper.toggled .sidebar-wrapper {
     left: 0;
+
 }
 
 [dir="rtl"] .page-wrapper.toggled .sidebar-wrapper {
@@ -71,6 +72,8 @@
 [dir="rtl"] .page-wrapper.toggled .sidebar-wrapper {
     right: 0;
     left: auto;
+
+
 }
 
 .sidebar-wrapper {

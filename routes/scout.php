@@ -16,8 +16,8 @@ use App\Http\Livewire\Scout\Search;
 |
 */
 
+Route::get("/scoutprofile/{scoutId}", ScoutProfile::class)->name("scout.profile")->middleware('sameRegiment');
 Route::middleware(['auth'])->group(function () {
-    Route::get("/scoutprofile/{scoutId}", ScoutProfile::class)->name("scout.profile");
     Route::get("/addscout", AddScout::class)->name("scout.add")->middleware("can:SupeUser-admin");
     Route::get("/search", Search::class)->name("scout.search");
 });

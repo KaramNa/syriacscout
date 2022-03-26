@@ -4,12 +4,16 @@
         @if ($edit_scout_permission)
             <div>
                 <button type="button" class="btn text-danger" data-toggle="modal"
-                    wire:click.prevent="editScoutPersonalInfo" data-target="#suspend_scout">
+                    data-target="#suspend_scout">
                     <i class="far fa-pause-circle" aria-hidden="true"></i>
                 </button>
                 <button type="button" class="btn text-primary" data-toggle="modal" data-target="#updateScoutPersonalInfo"
                     wire:click.prevent="editScoutPersonalInfo">
                     <i class="fas fa-edit" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="btn text-danger" data-toggle="modal"
+                     data-target="#deleteScout">
+                    <i class="fas fa-trash" aria-hidden="true"></i>
                 </button>
             </div>
         @endif
@@ -202,6 +206,31 @@
                                 {{ $message }}
                             </div>
                         @enderror
+                    </div>
+                    <div class="modal-footer" dir="rtl">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i
+                                class="fas fa-times"></i></button>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+    <form class="mb-0" wire:submit.prevent="deleteScout">
+        <div wire:ignore.self class="modal fade" id="deleteScout" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
+            <div class="static modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header" dir="rtl">
+                        <h5 class="modal-title" id="exampleModalLabel">حذف الكشاف
+                        </h5>
+                        <button type="button" class="ml-0 close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>هل تريد حذف هذا الكشاف؟</h5>
                     </div>
                     <div class="modal-footer" dir="rtl">
                         <button type="button" class="btn btn-danger" data-dismiss="modal"><i

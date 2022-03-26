@@ -71,7 +71,7 @@ class ManagePersonalInfo extends Component
     {
         $this->validate();
         if (auth()->user()->user_type == "admin")
-            $this->scout_regiment = auth()->user()->scout_regiment;
+            $this->scout_regiment = auth()->user()->regiment_id;
         $updated = $this->scout->update([
             "scout_profile_picture" => $this->fileName,
             "scout_first_name" => $this->scout_first_name,
@@ -121,5 +121,17 @@ class ManagePersonalInfo extends Component
         }
         $this->dispatchBrowserEvent("CloseModal");
         return redirect(request()->header("Referer"));
+    }
+    
+     public function deleteScout(){
+        $deletedScout = $this->scout->delete();
+        if ($deletedScout) {
+            session()->flash("update_succeed", "تم حذف الكشاف بنجاح");
+        } else {
+            session()->flash("update_failed", "حدث خطأ ما, الرجاء المحاولة مجدداً");
+        }
+        $this->dispatchBrowserEvent("CloseModal");
+        return redirect("/");
+
     }
 }

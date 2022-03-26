@@ -26,12 +26,12 @@ trait AddScoutPersonalInfos
         "scout_last_name" => ["required", "regex:/^[a-zA-Z\s]|[\p{Arabic}\s]+$/u"],
         "scout_father_name" => ["required", "regex:/^[a-zA-Z\s]|[\p{Arabic}\s]+$/u"],
         "scout_mother_name" => ["required", "regex:/^[a-zA-Z\s]|[\p{Arabic}\s]+$/u"],
-        "scout_national_no" => "required|numeric",
+        // "scout_national_no" => "sometimes|numeric",
         "scout_birthdate" => "required|date_format:d/m/Y",
         "scout_number" => "required|numeric",
         "scout_affiliation_date" => "required|date_format:d/m/Y",
         "scout_title" => "required",
-        "scout_email" => "required|email",
+        // "scout_email" => "sometimes|email",
         "scout_mobile_phone" => "required|numeric",
         "scout_home_phone" => "required|numeric",
         "scout_name_en" => "required|regex:/^[a-zA-Z\s]+$/u",
@@ -62,7 +62,7 @@ trait AddScoutPersonalInfos
                 ]);
                 $image = $this->scoutProfilePicture;
                 $this->fileName = time() . '.' . $image->getClientOriginalExtension();
-                $resized_image = Image::make($image)->resize(500, 500)->encode();
+                $resized_image = Image::make($image)->resize(400, 600)->encode();
                 Storage::put($this->fileName, $resized_image);
                 Storage::move($this->fileName, ('public/images/profile_pictures/' . $this->fileName));
             } catch (ValidationException $e) {
@@ -78,7 +78,7 @@ trait AddScoutPersonalInfos
     public function addScoutPersonalInfos()
     {
         if (auth()->user()->user_type == "admin")
-            $this->scout_regiment = auth()->user()->scout_regiment;
+            $this->scout_regiment = auth()->user()->regiment_id;
 
         $scout_id = PersonalInfo::insertGetId([
             "scout_profile_picture" => $this->fileName,

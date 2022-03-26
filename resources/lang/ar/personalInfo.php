@@ -36,6 +36,7 @@ return [
     "Female leader" => "قائدة",
     "Rambling" => "جوال",
     "Major" => "رائدة",
+    "musician" => "موسيقي",
     "Regiment" => "الفوج",
     "Choose regiment" => "اختر الفوج",
     "Marital status" => "الحالة الاجتماعية",

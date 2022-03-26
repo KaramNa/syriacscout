@@ -31,7 +31,7 @@
             <div class="text-center col-6">
                 <div wire:loading wire:target="scoutProfilePicture"><i class="mt-4 fas fa-spinner fa-pulse h1"></i>
                 </div>
-                <img src="{{ asset('images/profile_pictures/' . $fileName) }}" class="rounded img-responsive"
+                <img src="{{ asset('storage/images/profile_pictures/' . $fileName) }}" class="rounded img-responsive"
                     alt="scout profile picture" style="width: 100px; height:100px" wire:loading.remove
                     wire:target="scoutProfilePicture">
                 @if ($fileName !== 'avatar.jpg')
@@ -220,6 +220,7 @@
                     </option>
                     <option value="{{ __('personalInfo.Rambling') }}">{{ __('personalInfo.Rambling') }}</option>
                     <option value="{{ __('personalInfo.Major') }}">{{ __('personalInfo.Major') }}</option>
+                    <option value="{{ __('personalInfo.musician') }}">{{ __('personalInfo.musician') }}</option>
                 </select>
                 @error('scout_title')
                     <div class="text-danger d-flex justify-content-start">

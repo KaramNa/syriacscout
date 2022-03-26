@@ -9,7 +9,7 @@
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
             <i class="fas fa-bars"></i>
         </a>
-        <nav id="sidebar" class="sidebar-wrapper" wire:ignore>
+        <nav id="sidebar" class="sidebar-wrapper overflow-auto h-100" wire:ignore>
             <div class="sidebar-content">
                 <div class="px-3 py-2 d-flex justify-content-end">
                     <div id="close-sidebar">

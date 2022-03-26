@@ -20,7 +20,7 @@ use App\Http\Livewire\User\ChangerUserPassword;
 */
 
 Route::get("/user/login", [Login::class, "index"])->name("user.login")->middleware("guest");
-Route::post("/user/login", [Login::class, "login"])->name("user.login")->middleware("guest");
+Route::post("/user/login", [Login::class, "login"]);
 
 Route::middleware(['auth'])->group(function () {
     Route::get("/user/register", Register::class)->name("user.register")->middleware("can:superUser");

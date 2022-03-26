@@ -10,52 +10,78 @@ use App\Models\Scout\Education;
 use App\Models\Scout\Experience;
 use App\Models\Scout\CurrentWork;
 use App\Models\Scout\PersonalInfo;
-use phpDocumentor\Reflection\Types\Null_;
 use Mediconesystems\LivewireDatatables\Column;
 use Mediconesystems\LivewireDatatables\NumberColumn;
-use Mediconesystems\LivewireDatatables\BooleanColumn;
 use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 
 class Search extends LivewireDatatable
 {
     public $exportable = true;
+    public $hideable;
 
     public function builder()
     {
         return PersonalInfo::query();
     }
-
+    //if ((auth()->user()->user_type === "admin" && auth()->user()->regiment_id === $this->scout->regiment_id) || auth()->user()->user_type === "superUser")
     public function columns()
     {
+        if (auth()->user()->user_type === "superUser")
+            $this->hideable = 'select';
+
         return [
 
-            Column::name('id')
-                ->hide(),
+            Column::name('id')->hide(),
 
-            Column::name('scout_number')
-                ->label("الرقم الكشفي")
-                ->defaultSort('asc')
-                ->link('/scoutprofile/{{id}}'),
+            column::callback(['scout_number', 'id'], function ($scout_number, $id) {
+                $scout = PersonalInfo::find($id);
+                if ((auth()->user()->user_type === "admin" && auth()->user()->regiment_id === $scout->regiment_id) || auth()->user()->user_type === "superUser")
+                    return "<a class='border-2 border-transparent hover:border-blue-500 hover:bg-blue-100 hover:shadow-lg text-blue-600 rounded-lg  py-1' href='scoutprofile/" . $id . "'>$scout_number</a>";
+                else
+                    return $scout_number;
+            })->label("الرقم الكشفي")
+                ->defaultSort('asc'),
 
             Column::name('scout_first_name')
                 ->label("الاسم")
                 ->searchable()
                 ->defaultSort('asc'),
 
+            Column::name('scout_father_name')
+                ->label("اسم الأب")
+                ->defaultSort('asc')
+                ->hide(),
+
             Column::name('scout_last_name')
                 ->label("الكنية")
                 ->searchable()
                 ->defaultSort('asc'),
 
+            Column::name('scout_mother_name')
+                ->label("اسم الأم")
+                ->defaultSort('asc')
+                ->hide(),
+
+            Column::name('scout_gender')
+                ->label("الجنس")
+                ->defaultSort('asc'),
+
             Column::name('scout_email')
-                ->label("البريد الاكتروني"),
+                ->label("البريد الاكتروني")
+                ->hide(),
 
             Column::name('scout_mobile_phone')
-                ->label("رقم الموبايل"),
+                ->label("رقم الموبايل")
+                ->hide(),
 
             Column::name('regiment.regiment_name')
                 ->label("الفوج")
+                ->defaultSort('asc')
                 ->filterable($this->Regiment),
+
+            Column::name('scout_title')
+                ->label("اللقب")
+                ->filterable($this->titles),
 
             NumberColumn::raw('FLOOR(DATEDIFF(NOW(), (STR_TO_DATE(scout_birthdate, "%d/%m/%Y")))/365) AS العمر')
                 ->filterable(),
@@ -71,7 +97,6 @@ class Search extends LivewireDatatable
 
             Column::name('languages.scout_lang')
                 ->label("اللغات")
-                ->defaultSort('asc')
                 ->filterable($this->Languages),
 
             Column::name('skills.scout_skill_name')
@@ -104,6 +129,11 @@ class Search extends LivewireDatatable
     public function getLanguagesProperty()
     {
         return Language::groupBy('scout_lang')->pluck('scout_lang');
+    }
+
+    public function getTitlesProperty()
+    {
+        return PersonalInfo::groupBy('Scout_title')->pluck('Scout_title');
     }
 
     public function getRegimentProperty()
