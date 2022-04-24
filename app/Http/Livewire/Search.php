@@ -62,6 +62,10 @@ class Search extends LivewireDatatable
                 ->defaultSort('asc')
                 ->hide(),
 
+            Column::name('scout_name_en')
+                ->label("الاسم بالانكليزية")
+                ->defaultSort('asc'),
+
             Column::name('scout_gender')
                 ->label("الجنس")
                 ->defaultSort('asc'),
